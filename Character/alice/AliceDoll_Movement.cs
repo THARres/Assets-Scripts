@@ -13,7 +13,7 @@ public class AliceDoll_Movement : MonoBehaviour {
 	private float timer;
 	//private bool dollAction; // Store dollAction
 
-	// Use this for initialization
+	/* Use this for initialization */
 	void Start () {
 		animator = this.GetComponent<Animator>();
 		prevRotate = 0;
@@ -23,7 +23,7 @@ public class AliceDoll_Movement : MonoBehaviour {
 		timer = 0;
 	}
 	
-	// Update is call once per turn
+	/* Update is call once per turn */
 	void Update() {
 
 		objectMouse = playerControlScript.mousePos;
@@ -34,7 +34,8 @@ public class AliceDoll_Movement : MonoBehaviour {
 
 		if (dollAction) {
 			timer += (1f / 60);
-			if (timer > .5) {
+			/* Shooting every .1 sec */
+			if (timer > .1f) {
 				timer = 0f;
 				Global.inherentParticleEmission(transform.Find("Normal Attack").gameObject);
 			}
