@@ -48,30 +48,30 @@ public class playerControlScript : MonoBehaviour {
 		 * 0 for no vertical direction  *
 		 ********************************/
 
+		/* Get the position of the mouse */
 		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		// Get the position of the mouse
 
+		/* Get the position of the animator */
 		objectPos = transform.position;
-		// Get the position of the animator
 
+		/* Get the position of the mouse from the animator */
 		mousePos = mousePos - objectPos; 
-		// Get the position of the mouse from the animator
 
+		/* direction 0 = idle */
 		playerDirection = getDirection(horz, vert);
-		// direction 0 = idle, no need to has 5
 
+		/* shift for dashing */
 		playerShift = getShift();
-		// shift for dashing
 
+		/* mouse for reverse movement */
 		playerMouse = getMouse(mousePos.x, mousePos.y, playerDirection);
-		// mouse for reverse movement
 
+		/* action for negate movement */
 		playerAction = getAction();
-		// action for negate movement
 
 	}
 
-	int getDirection(float h, float v) {
+	public static int getDirection(float h, float v) {
 		
 		/***********************************************************************
 		 * Direction is based on numpad key 0-9                                *
@@ -88,7 +88,7 @@ public class playerControlScript : MonoBehaviour {
 			((h < 0) ? 4 : 6)) : ((v < 0) ? 2 : 8)) : 0;
 	}
 
-	bool getMouse(float x, float y, int d) {
+	public static bool getMouse(float x, float y, int d) {
 
 		/**********************************************************************
 		 * To check whether movement direction is approaching mousePos or not *
@@ -124,12 +124,12 @@ public class playerControlScript : MonoBehaviour {
 		}
 	}
 
-	bool getShift() {
-		//Check if Shift is pressed or not
+	public static bool getShift() {
+		/* Check if Shift is pressed or not */
 		return Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.LeftShift);
 	}
 
-	bool getAction() {
+	public static bool getAction() {
 		return false; // False for now since no action is implemented yet
 	}
 

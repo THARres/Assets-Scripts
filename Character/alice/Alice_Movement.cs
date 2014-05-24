@@ -52,29 +52,33 @@ public class Alice_Movement : MonoBehaviour {
 		charaX = animator.transform.position.x;
 		charaY = animator.transform.position.y;
 
+		/* attach controller to object, player or AI */
 		attachController();
 
+		/* setCharaVariablesValues */
 		setCharaVarValues();
-		// setCharaVariablesValues
 
+		/* setMovementAnimationState */
 		setCharaMovState();
-		// setMovementAnimationState
 
+		/* setMovementAnimationSpeed */
 		setCharaMovSpeed();
-		// setMovementAnimationSpeed
 	}
 
 	void attachController() {
-		control = "human";
+		control = "player";
 	}
 
 	void setCharaVarValues() {
 
 		switch (control) {
-		case "human" :
+		case "player" :
+
+			Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
 			charaDirection = playerControlScript.playerDirection;
 			charaShift     = playerControlScript.playerShift;
+
 			charaMouse     = playerControlScript.playerMouse;
 			charaAction    = playerControlScript.playerAction;
 			charaReverse   = getReverse(charaDirection, charaMouse);
@@ -86,7 +90,7 @@ public class Alice_Movement : MonoBehaviour {
 	}
 
 	bool getReverse(int d, bool m) {
-		//Check if sprite needs to be reversed or not
+		/*Check if sprite needs to be reversed or not */
 		switch (d) {
 		case 0: // Idle
 			return charaReverse;
@@ -127,9 +131,9 @@ public class Alice_Movement : MonoBehaviour {
 	}
 
 	void setCharaMovState() {
-		// Set if Sprite needs to be reversed
+		/* Set if Sprite needs to be reversed */
 		animator.transform.Rotate(0, getRotation(charaReverse), 0);
-		// Check if Character is Processing Action
+		/* Check if Character is Processing Action */
 		if (charaAction) setCharaActionMovState();
 		else setCharaNonActionMovState();
 	}
@@ -139,31 +143,31 @@ public class Alice_Movement : MonoBehaviour {
 	}
 
 	void setCharaNonActionMovState() {
-		// Check if Character is idle
+		/* Check if Character is idle */
 		if (charaDirection == 0) setIdleMovState();
 		else setCharaMovingMovState();
 	}
 
 	void setCharaMovingMovState() {
-		// Check if Character is moving to position of mouse
+		/* Check if Character is moving to position of mouse */
 		if (charaMouse) setCharaForwardMovState();
 		else setCharaBackwardMovState();
 	}
 
 	void setCharaForwardMovState() {
-		// Check if Character is dashing
+		/* Check if Character is dashing */
 		if (charaShift) setForwardDashMovState();
 		else setForwardWalkMovSate();
 	}
 
 	void setCharaBackwardMovState() {
-		// Check if Character is dashing
+		/* Check if Character is dashing */
 		if (charaShift) setBackwardDashMovState();
 		else setBackwardWalkMovSate();
 	}
 
 	void setIdleMovState() {
-		// isDashing() is to finish pre#, post# dashing animation
+		/* isDashing() is to finish pre#, post# dashing animation */
 		if (!isDashing()) animator.Play("AliceStand");
 	}
 
