@@ -16,11 +16,14 @@ public class scrollCameraScript : MonoBehaviour {
 	private static float left;   // Store Left Map Border
 	private static float right;  // Store Right Map Border
 
+	private static AliceController script;
+
 	// Use this for initialization
 	void Start () {
 		camH  = Camera.main.orthographicSize; // Half Width
 		camW  = camH * camera.aspect;         // Half Height
 		tempH = 0;
+		script = GameObject.Find("Alice").GetComponent<AliceController>();
 	}
 
 	// Update is called once per frame
@@ -42,11 +45,11 @@ public class scrollCameraScript : MonoBehaviour {
 		camX = transform.position.x;
 		camY = transform.position.y;
 
-		charaX = Alice_Movement.charaX;
-		charaY = Alice_Movement.charaY;
+		charaX = script.getCharaX();
+		charaY = script.getCharaY();
 
-		if (setCamScroll()) scrollCam(Alice_Movement.charaDirection, Alice_Movement.charaMovSpd);
-		else scrollCam(checkDirection(), Alice_Movement.charaMovSpd);
+		if (setCamScroll()) scrollCam(script.getCharaDirection(), script.getCharaMovSpd());
+		else scrollCam(checkDirection(), script.getCharaMovSpd());
 	}
 
 	bool setCamScroll() {
@@ -54,7 +57,7 @@ public class scrollCameraScript : MonoBehaviour {
 	}
 
 	int checkDirection() {
-		switch (Alice_Movement.charaDirection) {
+		switch (script.getCharaDirection()) {
 		case 0: // Idle
 			return 0;
 		case 1: // Down-Left
