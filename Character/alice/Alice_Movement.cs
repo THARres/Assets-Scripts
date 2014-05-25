@@ -6,12 +6,16 @@ public class Alice_Movement : MonoBehaviour {
 	public static Vector2 charaMousePos;  // Store Position of Mouse  to Pass Around Scripts
 	public static int     charaDirection; // Store charaDirection     to Pass Around Scripts
 	public static bool    charaShift;     // Store shift              to Pass Around Scripts
+	public static bool    charaDmged;  	  // Store whether dmg taken  to Pass Around Scripts
 	public static bool    charaMouse;     // Store charaMouse         to Pass Around Scripts
 	public static bool    charaAction;    // Store charaAction        to Pass Around Scripts
 	public static bool    charaReverse;   // Store charaReverse       to Pass Around Scripts
 	public static float   charaMovSpd;    // Store charaMovementSpeed to Pass Around Scripts
 	public static float   charaX;         // Store Chara x-coordinate to Pass Around Scripts
 	public static float   charaY;         // Store Chara y-coordinate to Pass Around Scripts
+	public static float   charaHP = 10;	  // Store current hp values  to Pass Around Scripts
+	public static float   charaMaxHP; 	  // Store max hp 		      to Pass Around Scripts
+	public static float   charabuffHP; 	  // Store buffed hp values	  to Pass Around Scripts
 	public static string  control;        // Store Character Control  to Pass Around Scripts
 
 	private static Animator animator;     // Store Animator
@@ -56,6 +60,11 @@ public class Alice_Movement : MonoBehaviour {
 		/* setCharaVariablesValues */
 		setCharaVarValues();
 
+		/* setHPAfterDmg*/
+		if (charaDmged) {
+			setCharaDmgedHP();
+		}
+
 		/* setMovementAnimationState */
 		setCharaMovState();
 
@@ -73,6 +82,7 @@ public class Alice_Movement : MonoBehaviour {
 			charaMousePos  = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 			charaDirection = playerControlScript.playerDirection;
 			charaShift     = playerControlScript.playerShift;
+			charaDmged	   = playerControlScript.playerQ;
 			charaMouse     = playerControlScript.getMouse(charaMousePos.x, charaMousePos.y, charaDirection);
 			charaAction    = playerControlScript.playerAction;
 			charaReverse   = getReverse(charaDirection, charaMouse);
@@ -370,4 +380,13 @@ public class Alice_Movement : MonoBehaviour {
 
 	}
 
+	void setCharaDmgedHP(){
+		/*currently only lose 2.5*/
+		charaHP -= (float)2.5;
+		Debug.Log(charaHP);
+	}
+
+	void defeated(){
+		//Empty for now
+	}
 }

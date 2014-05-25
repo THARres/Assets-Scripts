@@ -6,6 +6,7 @@ public class playerControlScript : MonoBehaviour {
 	public static int   playerDirection; // Store playerDirection     to Pass Around Scripts
 	public static bool  playerShift;     // Store shift               to Pass Around Scripts
 	public static bool  playerAction;    // Store playerAction        to Pass Around Scripts
+	public static bool  playerQ;		 // Store q					  to Pass Around Scripts
 
 	private static float horz;           // Store Horizontal Input
 	private static float vert;           // Store Vertical Input
@@ -45,6 +46,9 @@ public class playerControlScript : MonoBehaviour {
 
 		/* shift for dashing */
 		playerShift = getShift();
+
+		/*q to lose hp*/
+		playerQ = getQ();
 
 		/* action for negate movement */
 		playerAction = getAction();
@@ -108,7 +112,10 @@ public class playerControlScript : MonoBehaviour {
 		/* Check if Shift is pressed or not */
 		return Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.LeftShift);
 	}
-
+	public static bool getQ(){
+		/*Check if Q is pressed or not*/
+		return Input.GetKeyDown(KeyCode.Q);
+	}
 	public static bool getAction() {
 		return false; // False for now since no action is implemented yet
 	}

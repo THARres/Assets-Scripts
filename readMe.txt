@@ -4,7 +4,6 @@ To Do List:
 
 Priority
 - Fixed Character Child Y Rotation (AliceDoll_Movement)
-- Implement HP Parameter on Character (Alice_Movement)
 - Implement Basic AI controller (AIControlScript)
 
 Secondary
@@ -14,3 +13,6 @@ Secondary
 - Build Scene Manager
 - Build Main Menu Scene
 - Build Game Over Scene
+
+Completed
+- Implement HP Parameter on Character (Alice_Movement)
