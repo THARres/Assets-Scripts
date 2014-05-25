@@ -1,19 +1,20 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class AliceDoll_Movement : MonoBehaviour {
+public class CirnoOptionController : MonoBehaviour {
 
 	private Animator animator;       // Store Animator
 	private Vector2  objectMouse;
 	private bool     rotatedY;
-	private bool     dollAction;
+	private bool     optionAction;
 	private float    prevRotate;
 	private float    currentRotate;
-	private float    timer;
+	private float    timer;	
 
 	/* Use this for initialization */
 	void Start () {
-		animator = this.GetComponent<Animator>();
+		//animator = this.GetComponent<Animator>();
+
 		prevRotate = 0;
 		currentRotate = 0;
 		rotatedY = false;
@@ -23,13 +24,14 @@ public class AliceDoll_Movement : MonoBehaviour {
 	/* Update is call once per turn */
 	void Update() {
 
-		objectMouse = Alice_Movement.charaMousePos;
-		animator.transform.Rotate(0,getRotationY(Alice_Movement.charaReverse), getRotationZ());
+		var script = GameObject.Find("Cirno").GetComponent<CirnoController>();
 
-		dollAction = getDollAction();
+		objectMouse = script.getCharaMousePos();
+		transform.Rotate(0,getRotationY(script.getCharaReverse()), getRotationZ());
 
+		optionAction = script.getCharaNormAtk();
 
-		if (dollAction) {
+		if (optionAction) {
 			timer += (1f / 60);
 			/* Shooting every .1 sec */
 			if (timer > .1f) {
@@ -37,10 +39,6 @@ public class AliceDoll_Movement : MonoBehaviour {
 				Global.inherentParticleEmission(transform.Find("Normal Attack").gameObject);
 			}
 		}
-
-		setDollMovState();
-		// setMovementAnimationState
-
 	}
 
 	float getRotationY(bool r) {
@@ -66,37 +64,10 @@ public class AliceDoll_Movement : MonoBehaviour {
 		if (prevRotate == currentRotate) {
 			return 0;
 		} else {
-			animator.transform.Rotate(0,0,-prevRotate);
+			transform.Rotate(0,0,-prevRotate);
 			prevRotate = currentRotate;
 			return currentRotate;
 		}
-	}
-
-	bool getDollAction() {
-		return Input.GetMouseButton(0);
-	}
-
-	void setDollMovState() {
-		// Check if Character is Processing Action
-		//if (dollAction) setDollActionMovState();
-		//else 
-		setDollNonActionMovState();
-	}
-
-	void setDollActionMovState() {
-		// Pending for Action States
-	}
-
-	void setDollNonActionMovState() {
-		setDollMovingMovState();
-	}
-
-	void setDollMovingMovState() {
-		setIdleMovState();
-	}
-
-	void setIdleMovState() {
-		animator.Play("AliceDollStand");
 	}
 	
 }

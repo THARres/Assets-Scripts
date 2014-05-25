@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NormalAttackScript : MonoBehaviour {
+public class AliceAttackController : MonoBehaviour {
 
 	private Vector2 objectMouse; // Store mouse position based on character
 	private bool rotatedY;
@@ -14,7 +14,7 @@ public class NormalAttackScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		objectMouse = Alice_Movement.charaMousePos;
+		objectMouse = GameObject.Find("Alice").GetComponent<AliceController>().getCharaMousePos();
 		currentRotate =  -Mathf.Atan2(objectMouse.y, objectMouse.x) * Mathf.Rad2Deg;
 
 		//Rotate All Child Objects
