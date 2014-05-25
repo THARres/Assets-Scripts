@@ -1,10 +1,14 @@
 To Do List:
 
-5/24/2014
+5/25/2014
 
 Priority
-- Fixed Character Child Y Rotation (AliceDoll_Movement)
-- Implement Basic AI controller (AIControlScript)
+- Fixed Character Child Y Rotation (AliceDoll_Movement.cs)
+- Build character Option Manager (charaOptionController.cs)
+- Build Character Attack Manager (charaAttackController.cs)
+- Implement Basic Stats (STR, AGI, MAG) (charaController.cs)
+- Implement SP Parameter (charaController.cs)
+- Implement Character Focus (charaController.cs + scrollCameraScript.cs)
 
 Secondary
 - Build Audio Manager
@@ -15,4 +19,5 @@ Secondary
 - Build Game Over Scene
 
 Completed
-- Implement HP Parameter on Character (Alice_Movement)
+- Implement HP Parameter on Character (Alice_Movement.cs)
+- Implement Basic AI controller (AIControlScript.cs)
