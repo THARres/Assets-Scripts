@@ -39,7 +39,7 @@ public class Alice_Movement : MonoBehaviour {
 		fDash = false;
 		charaReverse = false;
 		charaMaxHP = 10; //base hp
-		charaBuffHP = 0; //amount of hp received rom buff
+		charaBuffHP = 0; //amount of hp received from buff
 		charaHP = charaMaxHP + charaBuffHP; //current total
 	}
 
