@@ -13,9 +13,9 @@ public class Alice_Movement : MonoBehaviour {
 	public static float   charaMovSpd;    // Store charaMovementSpeed to Pass Around Scripts
 	public static float   charaX;         // Store Chara x-coordinate to Pass Around Scripts
 	public static float   charaY;         // Store Chara y-coordinate to Pass Around Scripts
-	public static float   charaHP = 10;	  // Store current hp values  to Pass Around Scripts
-	public static float   charaMaxHP; 	  // Store max hp 		      to Pass Around Scripts
-	public static float   charabuffHP; 	  // Store buffed hp values	  to Pass Around Scripts
+	public static float   charaHP;		  // Store current hp values  to Pass Around Scripts
+	public static float   charaMaxHP;	  // Store max hp 		      to Pass Around Scripts
+	public static float   charaBuffHP; 	  // Store buffed hp values	  to Pass Around Scripts
 	public static string  control;        // Store Character Control  to Pass Around Scripts
 
 	private static Animator animator;     // Store Animator
@@ -38,6 +38,9 @@ public class Alice_Movement : MonoBehaviour {
 		bDash = false;
 		fDash = false;
 		charaReverse = false;
+		charaMaxHP = 10; //base hp
+		charaBuffHP = 0; //amount of hp received rom buff
+		charaHP = charaMaxHP + charaBuffHP; //current total
 	}
 
 	/* Update is call once per turn */
