@@ -6,7 +6,7 @@ public class playerControlScript : MonoBehaviour {
 	public static int   playerDirection; // Store playerDirection     to Pass Around Scripts
 	public static bool  playerShift;     // Store shift               to Pass Around Scripts
 	public static bool  playerAction;    // Store playerAction        to Pass Around Scripts
-	public static bool  playerQ;		 // Store q					  to Pass Around Scripts
+	public static bool  playerQ;         // Store q                   to Pass Around Scripts
 
 	private static float horz;           // Store Horizontal Input
 	private static float vert;           // Store Vertical Input
@@ -118,6 +118,10 @@ public class playerControlScript : MonoBehaviour {
 	}
 	public static bool getAction() {
 		return false; // False for now since no action is implemented yet
+	}
+
+	public static bool getMouseDown00() {
+		return Input.GetMouseButton(0);
 	}
 
 }
