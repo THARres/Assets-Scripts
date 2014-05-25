@@ -14,7 +14,7 @@ public class NormalAttackScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		objectMouse = playerControlScript.mousePos;
+		objectMouse = Alice_Movement.charaMousePos;
 		currentRotate =  -Mathf.Atan2(objectMouse.y, objectMouse.x) * Mathf.Rad2Deg;
 
 		//Rotate All Child Objects

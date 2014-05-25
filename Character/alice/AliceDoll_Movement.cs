@@ -3,22 +3,19 @@ using System.Collections;
 
 public class AliceDoll_Movement : MonoBehaviour {
 
-	private Animator animator;    // Store Animator
-	private Vector2 objectMouse;
-	private bool rotatedY;
-	private bool dollAction;
-	private float prevRotate;
-	private float currentRotate;
-	//private bool activateNormal;
-	private float timer;
-	//private bool dollAction; // Store dollAction
+	private Animator animator;       // Store Animator
+	private Vector2  objectMouse;
+	private bool     rotatedY;
+	private bool     dollAction;
+	private float    prevRotate;
+	private float    currentRotate;
+	private float    timer;
 
 	/* Use this for initialization */
 	void Start () {
 		animator = this.GetComponent<Animator>();
 		prevRotate = 0;
 		currentRotate = 0;
-		//activateNormal = true;
 		rotatedY = false;
 		timer = 0;
 	}
@@ -26,7 +23,7 @@ public class AliceDoll_Movement : MonoBehaviour {
 	/* Update is call once per turn */
 	void Update() {
 
-		objectMouse = playerControlScript.mousePos;
+		objectMouse = Alice_Movement.charaMousePos;
 		animator.transform.Rotate(0,getRotationY(Alice_Movement.charaReverse), getRotationZ());
 
 		dollAction = getDollAction();

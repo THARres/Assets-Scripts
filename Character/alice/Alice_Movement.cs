@@ -3,33 +3,31 @@ using System.Collections;
 
 public class Alice_Movement : MonoBehaviour {
 
-	public static int    charaDirection; // Store charaDirection     to Pass Around Scripts
-	public static bool   charaShift;     // Store shift              to Pass Around Scripts
-	public static bool   charaMouse;     // Store charaMouse         to Pass Around Scripts
-	public static bool   charaAction;    // Store charaAction        to Pass Around Scripts
-	public static bool   charaReverse;   // Store charaReverse       to Pass Around Scripts
-	public static float  charaMovSpd;    // Store charaMovementSpeed to Pass Around Scripts
-	public static float  charaX;         // Store Chara x-coordinate to Pass Around Scripts
-	public static float  charaY;         // Store Chara y-coordinate to Pass Around Scripts
-	public static string control;        // Store Character Control  to Pass Around Scripts
+	public static Vector2 charaMousePos;  // Store Position of Mouse  to Pass Around Scripts
+	public static int     charaDirection; // Store charaDirection     to Pass Around Scripts
+	public static bool    charaShift;     // Store shift              to Pass Around Scripts
+	public static bool    charaMouse;     // Store charaMouse         to Pass Around Scripts
+	public static bool    charaAction;    // Store charaAction        to Pass Around Scripts
+	public static bool    charaReverse;   // Store charaReverse       to Pass Around Scripts
+	public static float   charaMovSpd;    // Store charaMovementSpeed to Pass Around Scripts
+	public static float   charaX;         // Store Chara x-coordinate to Pass Around Scripts
+	public static float   charaY;         // Store Chara y-coordinate to Pass Around Scripts
+	public static string  control;        // Store Character Control  to Pass Around Scripts
 
-	public static Transform controller;  // Store Character Control  to Pass Around Scripts  
+	private static Animator animator;     // Store Animator
+	private static bool     getSR;        // Store getStateReversed
+	private static bool     bDash;        // Store backDash
+	private static bool     fDash;        // Store frontDash
+	private static float    horz;         // Store Horizontal Input
+	private static float    vert;         // Store Vertical Input
 
-	private static Animator animator;    // Store Animator
-	private static bool getSR;           // Store getStateReversed
-	private static bool bDash;           // Store backDash
-	private static bool fDash;           // Store frontDash
-	private static float horz;           // Store Horizontal Input
-	private static float vert;           // Store Vertical Input
+	private static bool     setMap;       // Switch
+	private static float    top;          // Store Top Map Border
+	private static float    bottom;       // Store Bottom Map Border
+	private static float    left;         // Store Left Map Border
+	private static float    right;        // Store Right Map Border
 
-	private static bool setMap;          // Switch
-	private static float top;            // Store Top Map Border
-	private static float bottom;         // Store Bottom Map Border
-	private static float left;           // Store Left Map Border
-	private static float right;          // Store Right Map Border
-
-	// Use this for initialization
-
+	/* Use this for initialization */
 	void Start() { 
 		animator = this.GetComponent<Animator>();
 		getSR = false;
@@ -38,7 +36,7 @@ public class Alice_Movement : MonoBehaviour {
 		charaReverse = false;
 	}
 
-	// Update is call once per turn
+	/* Update is call once per turn */
 	void Update() {
 
 		if (!setMap) {
@@ -70,21 +68,18 @@ public class Alice_Movement : MonoBehaviour {
 	}
 
 	void setCharaVarValues() {
-
 		switch (control) {
 		case "player" :
-
-			Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
+			charaMousePos  = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 			charaDirection = playerControlScript.playerDirection;
 			charaShift     = playerControlScript.playerShift;
-
-			charaMouse     = playerControlScript.playerMouse;
+			charaMouse     = playerControlScript.getMouse(charaMousePos.x, charaMousePos.y, charaDirection);
 			charaAction    = playerControlScript.playerAction;
 			charaReverse   = getReverse(charaDirection, charaMouse);
 			charaMovSpd    = getMovSpeed(charaDirection, charaShift, charaMouse);
 			break;
 		case "AI" :
+			/* AI Controller Pending */
 			break;
 		}
 	}
@@ -97,7 +92,7 @@ public class Alice_Movement : MonoBehaviour {
 		case 1: // Down-Left
 			return m;
 		case 2: // Down
-			return playerControlScript.mousePos.x < 0;
+			return charaMousePos.x < 0;
 		case 3: // Down-Right
 			return !m;
 		case 4: // Left
@@ -107,7 +102,7 @@ public class Alice_Movement : MonoBehaviour {
 		case 7: // Up-Left
 			return m;
 		case 8: // Up
-			return playerControlScript.mousePos.x < 0;
+			return charaMousePos.x < 0;
 		case 9: // Up-Right
 			return !m;
 		default:

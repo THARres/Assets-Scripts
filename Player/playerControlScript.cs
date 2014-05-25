@@ -5,27 +5,19 @@ public class playerControlScript : MonoBehaviour {
 
 	public static int   playerDirection; // Store playerDirection     to Pass Around Scripts
 	public static bool  playerShift;     // Store shift               to Pass Around Scripts
-	public static bool  playerMouse;     // Store playerMouse         to Pass Around Scripts
 	public static bool  playerAction;    // Store playerAction        to Pass Around Scripts
-	public static float plaX;            // Store Player x-coordinate to Pass Around Scripts
-	public static float plaY;            // Store Player y-coordinate to Pass Around Scripts
-	public static Vector2 mousePos;      // Store mousePosition       to Pass Around Scripts
 
 	private static float horz;           // Store Horizontal Input
 	private static float vert;           // Store Vertical Input
-	private static Vector2 objectPos;    // Store objectPosition
 
-	// Use this for initialization
+	/* Use this for initialization */
 	void Start () {}
 	
-	// Update is called once per frame
+	/* Update is called once per frame */
 	void Update () {
 
-		plaX = transform.position.x;
-		plaY = transform.position.y;
-
+		/* setPlayerVariablesValues */
 		setPlayerVarValues();
-		// setPlayerVariablesValues
 	}
 
 	void setPlayerVarValues() {
@@ -48,23 +40,11 @@ public class playerControlScript : MonoBehaviour {
 		 * 0 for no vertical direction  *
 		 ********************************/
 
-		/* Get the position of the mouse */
-		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-		/* Get the position of the animator */
-		objectPos = transform.position;
-
-		/* Get the position of the mouse from the animator */
-		mousePos = mousePos - objectPos; 
-
 		/* direction 0 = idle */
 		playerDirection = getDirection(horz, vert);
 
 		/* shift for dashing */
 		playerShift = getShift();
-
-		/* mouse for reverse movement */
-		playerMouse = getMouse(mousePos.x, mousePos.y, playerDirection);
 
 		/* action for negate movement */
 		playerAction = getAction();
