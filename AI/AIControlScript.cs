@@ -1,28 +1,56 @@
 using UnityEngine;
 using System;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Text.RegularExpressions;
 
 public class AIControlScript : MonoBehaviour {
 
-	/* Input Syntax */
+	private static GameObject target;
+	private static bool       hasSetTarget;
+	private static Dictionary<string, string> cirnoAI;
 
 
 	/* Use this for initialization */
 	void Start () {
 
-		Dictionary<string, string> aliceAI = ParsingCommandLine(AliceAI());
-		foreach( KeyValuePair<string, string> kvp in aliceAI) {
-			Console.WriteLine("{0} = {1}", 
-			kvp.Key, kvp.Value);
-		}
+		cirnoAI = ParsingCommandLine(CirnoAI());
+		foreach( KeyValuePair<string, string> kvp in cirnoAI)
+			Debug.Log(kvp.Key + " = " + kvp.Value);
+
+
+		Debug.Log(cirnoAI["target"]);
+
+		hasSetTarget = false;
 	
 	}
 	
 	/* Update is called once per frame */
 	void Update () {
 	
+	}
+
+	public static void getCommand(charaController control) {
+
+		//if (control.name == "Cirno") {
+			if (!hasSetTarget) {
+				target = GameObject.Find(cirnoAI["target"]);
+				if (target) Debug.Log("found");
+				hasSetTarget = true;
+			}
+			if (cirnoAI["action"] == "eliminate") {
+				control.setCharaMousePos(target.transform.position);
+				control.setCharaDirection(0);
+				control.setCharaShift(false);
+				control.setCharaDmged(false);
+				control.setCharaMouse(true);
+				control.setCharaAction(false);
+				control.setCharaReverse(false);
+				control.setCharaMovSpd(0);
+				control.setCharaNormAtk(true);
+			}
+		//}
 	}
 
 	/* go to xy-coordinate */
@@ -46,18 +74,18 @@ public class AIControlScript : MonoBehaviour {
 		return result;
 	}
 
-	static string AliceAI() {
+	static string CirnoAI() {
 		return
 		  "[target]"
-		+ "Player"
+		+ "Alice"
 		+ "[action]"
-		+ "Guard"
+		+ "eliminate"
 		+ "[direction]"
-		+ "All"
+		+ "all"
 		+ "[time]"
 		+ "0"
-		+ "[name]"
-		+ "Guard Player";
+		+ "[extra]"
+		+ "target hp > 5";
 	}
 
 }
