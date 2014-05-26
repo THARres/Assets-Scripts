@@ -15,7 +15,6 @@ Secondary
 - Implement BG Audio
 
 - Implement Scene Manager
-- Implement Main Menu Scene
 - Implement Game Over Scene
 
 - Implement Basic Stats (STR, AGI, MAG) (CharaController.cs)
@@ -30,3 +29,4 @@ Completed
 - Implement Basic AI controller (AIControlScript.cs)
 - Implement character Option Manager (CharaOptionController.cs)
 - Implement Character Attack Manager (CharaAttackController.cs)
+- Implement Main Menu Scene (MainMenuScreen.cs)
