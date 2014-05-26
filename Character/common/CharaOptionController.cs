@@ -23,6 +23,8 @@ public class CharaOptionController : MonoBehaviour {
 		normAtkTimer = 0.1f;
 		timer = 0;
 
+		script = getCharaController();
+
 		additionalStart();
 
 	}
@@ -40,7 +42,7 @@ public class CharaOptionController : MonoBehaviour {
 	}
 
 	void setControllerValues() {
-		script = getCharaController();
+
 		objectMouse = script.getCharaMousePos();
 		optionAction = script.getCharaNormAtk();
 	}
