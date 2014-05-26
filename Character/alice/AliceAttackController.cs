@@ -1,25 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AliceAttackController : MonoBehaviour {
+public class AliceAttackController : CharaAttackController {
 
-	private Vector2 objectMouse; // Store mouse position based on character
-	private bool rotatedY;
-	private float prevRotate;
-	private float currentRotate;
-	
-	// Use this for initialization
-	void Start () {}
-	
-	// Update is called once per frame
-	void Update () {
-
-		objectMouse = GameObject.Find("Alice").GetComponent<AliceController>().getCharaMousePos();
-		currentRotate =  -Mathf.Atan2(objectMouse.y, objectMouse.x) * Mathf.Rad2Deg;
-
-		//Rotate All Child Objects
-		foreach (Transform child in transform) {
-			child.particleSystem.startRotation = currentRotate * Mathf.Deg2Rad;
-		}
+	public override CharaController getCharaController() {
+		return transform.root.gameObject.GetComponent<AliceController>();
 	}
 }
