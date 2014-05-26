@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class scrollCameraScript : MonoBehaviour {
+public class ScrollCameraScript : MonoBehaviour {
 
 	public static float camX;    // Store Camera x-coordinate to Pass Around Scripts
 	public static float camY;    // Store Camera y-coordinate to Pass Around Scripts
@@ -35,10 +35,10 @@ public class scrollCameraScript : MonoBehaviour {
 
 			camW = camH * camera.aspect;
 
-			top    = dataBackgroundScript.topMapBorder - camH;
-			bottom = dataBackgroundScript.bottomMapBorder + camH;
-			left   = dataBackgroundScript.leftMapBorder + camW;
-			right  = dataBackgroundScript.rightMapBorder - camW;
+			top    = DataBackgroundScript.topMapBorder - camH;
+			bottom = DataBackgroundScript.bottomMapBorder + camH;
+			left   = DataBackgroundScript.leftMapBorder + camW;
+			right  = DataBackgroundScript.rightMapBorder - camW;
 			tempH  = camW;
 		}
 

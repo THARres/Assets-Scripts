@@ -16,12 +16,6 @@ public class AIControlScript : MonoBehaviour {
 	void Start () {
 
 		cirnoAI = ParsingCommandLine(CirnoAI());
-		foreach( KeyValuePair<string, string> kvp in cirnoAI)
-			Debug.Log(kvp.Key + " = " + kvp.Value);
-
-
-		Debug.Log(cirnoAI["target"]);
-
 		hasSetTarget = false;
 	
 	}
@@ -31,12 +25,11 @@ public class AIControlScript : MonoBehaviour {
 	
 	}
 
-	public static void getCommand(charaController control) {
+	public static void getCommand(CharaController control) {
 
 		//if (control.name == "Cirno") {
 			if (!hasSetTarget) {
 				target = GameObject.Find(cirnoAI["target"]);
-				if (target) Debug.Log("found");
 				hasSetTarget = true;
 			}
 			if (cirnoAI["action"] == "eliminate") {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CirnoController : charaController {
+public class CirnoController : CharaController {
 
 	public override void attachController() {
 		setControl("AI");

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class charaController : MonoBehaviour {
+public class CharaController : MonoBehaviour {
 
 	/* Character Combat Status Parameters */
 	private float   charaHP;        // Store current hp values
@@ -53,6 +53,8 @@ public class charaController : MonoBehaviour {
 		charaMaxHP = 10; //base hp
 		charaBuffHP = 0; //amount of hp received from buff
 		charaHP = charaMaxHP + charaBuffHP; //current total
+
+		additionalStart();
 	}
 
 	/* Update is call once per turn */
@@ -67,15 +69,17 @@ public class charaController : MonoBehaviour {
 		/* applyCharaVariablesValues */
 		applyCharaVarValues();
 
+		additionalUpdate();
+
 	}
 
 	void setMapBorder() {
 		/* Setting Map Border Done Once Every Map Change */
 		if (!setMap) {
-			top    = dataBackgroundScript.topMapBorder;
-			bottom = dataBackgroundScript.bottomMapBorder;
-			left   = dataBackgroundScript.leftMapBorder;
-			right  = dataBackgroundScript.rightMapBorder;
+			top    = DataBackgroundScript.topMapBorder;
+			bottom = DataBackgroundScript.bottomMapBorder;
+			left   = DataBackgroundScript.leftMapBorder;
+			right  = DataBackgroundScript.rightMapBorder;
 			setMap = true;
 		}
 	}
@@ -352,6 +356,11 @@ public class charaController : MonoBehaviour {
 	 *                                               *
 	 *************************************************/
 
+	/* If Extra Stuff Required */
+	public virtual void additionalStart() {}
+
+	/* If Extra Stuff Required */
+	public virtual void additionalUpdate() {}
 
 	public virtual void attachController() {
 		control = "player";

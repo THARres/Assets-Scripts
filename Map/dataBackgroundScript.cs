@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dataBackgroundScript : MonoBehaviour {
+public class DataBackgroundScript : MonoBehaviour {
 
 	public static float topMapBorder;    // Store topMapBorder     to Pass Around Scripts
 	public static float leftMapBorder;   // Store leftMapBorder    to Pass Around Scripts

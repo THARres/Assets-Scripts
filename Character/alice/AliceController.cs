@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AliceController : charaController {
+public class AliceController : CharaController {
 
 	public override void attachController() {
 		setControl("player");
