@@ -1,12 +1,32 @@
 To Do List:
 
-5/25/2014
+5/28/2014
 
 Priority
 - Fixed Character Child Y Rotation (CharaAttackController.cs && CharaOptionController.cs)
 - Implement Character Focus (CharaController.cs + ScrollCameraScript.cs)
-- Implement Hit Box
-- Implement Collision Check
+
+- Implement Faction Layering
+
+- Implement Aya
+- Implement Hong
+- Implement Iku
+- Implement Komachi
+- Implement Marisa
+- Implement Patchouli
+- Implement Reimu
+- Implement Reisen
+- Implement Remilia
+- Implement Sakuya
+- Implement Sanae
+- Implement Suika
+- Implement Suwako
+- Implement Tenshi
+- Implement Utsuho
+- Implement Youmu
+- Implement Yukari
+- Implement Yuyuko
+
 
 Secondary
 
@@ -15,7 +35,6 @@ Secondary
 - Implement BG Audio
 
 - Implement Scene Manager
-- Implement Game Over Scene
 
 - Implement Basic Stats (STR, AGI, MAG) (CharaController.cs)
 - Implement SP Parameter (CharaController.cs)
@@ -30,3 +49,6 @@ Completed
 - Implement character Option Manager (CharaOptionController.cs)
 - Implement Character Attack Manager (CharaAttackController.cs)
 - Implement Main Menu Scene (MainMenuScreen.cs)
+- Implement Hit Box (HitBox.cs)
+- Implement Collision Check (HitBox.cs)
+- Implement Game Over Scene (SceneGameOver.cs)
