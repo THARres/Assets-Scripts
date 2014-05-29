@@ -329,13 +329,15 @@ public class CharaController : MonoBehaviour {
 
 	}
 
-	void applyCharaDmgedHP(){
+	public void applyCharaDmgedHP() {
 		/*currently only lose 2.5*/
-		charaHP -= (float)2.5;
+		charaHP -= 2.5f;
 		Debug.Log(charaHP);
+		if (charaHP == 0) defeated();
 	}
 
-	void defeated(){
+	void defeated() {
+		Application.LoadLevel("SceneGameOver");
 		//Empty for now
 	}
 

@@ -4,7 +4,9 @@ using System.Collections;
 public class CharaAttackController : MonoBehaviour {
 
 	private Vector2 objectMouse;
-	private float currentRotate;
+	private float   currentRotate;
+	private float   fixedZ;
+	private Vector3 coord;
 
 	private CharaController script;
 
@@ -12,24 +14,34 @@ public class CharaAttackController : MonoBehaviour {
 
 	void Start () { 
 
-		script = getCharaController();
+		preAdditionalStart();
 
-		additionalStart();
+		script = getCharaController();
+		fixedZ = -4f;
+
+		postAdditionalStart();
 	
 	}
 	
 	/* Update is called once per frame */
 	void Update () {
 
+		preAdditionalUpdate();
+
 		objectMouse   = script.getCharaMousePos();
 		currentRotate = -Mathf.Atan2(objectMouse.y, objectMouse.x) * Mathf.Rad2Deg;
 
 		//Rotate All Child Objects
 		foreach (Transform child in transform) {
+			if (child.transform.position.z != fixedZ) {
+				coord = child.transform.position;
+				coord.z = fixedZ;
+				child.transform.position = coord;
+			}
 			child.particleSystem.startRotation = currentRotate * Mathf.Deg2Rad;
 		}
 
-		additionalUpdate();
+		postAdditionalUpdate();
 	
 	}
 
@@ -44,10 +56,16 @@ public class CharaAttackController : MonoBehaviour {
 		*/
 
 	/* If Extra Stuff Required */
-	public virtual void additionalStart() {}
+	public virtual void preAdditionalStart() {}
 
 	/* If Extra Stuff Required */
-	public virtual void additionalUpdate() {}
+	public virtual void postAdditionalStart() {}
+
+	/* If Extra Stuff Required */
+	public virtual void preAdditionalUpdate() {}
+
+	/* If Extra Stuff Required */
+	public virtual void postAdditionalUpdate() {}
 
 	public virtual CharaController getCharaController() {
 		return GetComponent<CharaController>();
