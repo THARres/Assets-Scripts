@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenuScreen : MonoBehaviour {
+public class SceneTitle : MonoBehaviour {
 
 	public int buttonWidth = 200;
 	public int buttonHeight = Screen.height / 8;
@@ -20,7 +20,7 @@ public class MainMenuScreen : MonoBehaviour {
 		                    Screen.height / 6, buttonWidth, 400));
 
 			if (GUILayout.Button("Start", GUILayout.Height(buttonHeight))) {
-				Application.LoadLevel("touhouMain");
+				Application.LoadLevel("SceneBattle");
 			}
 			GUILayout.Space(spacing);
 			if (GUILayout.Button("Continue", GUILayout.Height(buttonHeight))) {
