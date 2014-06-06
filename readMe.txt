@@ -1,6 +1,6 @@
 To Do List:
 
-5/31/2014
+6/05/2014
 
 Priority
 - Conclude # of Parameters
@@ -10,7 +10,6 @@ Priority
 Secondary
 
 - Implement Faction Layering
-- Implement Animation Controller For All Playable Characters
 
 - Implement Audio Manager
 - Implement Basic Movement Audio (Walk, Dash, Idle)
