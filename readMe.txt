@@ -3,7 +3,6 @@ To Do List:
 6/05/2014
 
 Priority
-- Conclude # of Parameters
 - Conclude desired value of each character
 
 
@@ -25,3 +24,13 @@ Secondary
 
 - Fixed Character Child Y Rotation (CharaAttackController.cs && CharaOptionController.cs)
 - Implement Character Focus (CharaController.cs + ScrollCameraScript.cs)
+
+
+Parameters:
+2-tiers
+
+1st tier: 6 (hexagon)
+
+STR - AGI
+INT - CHA
+LUC - APT
