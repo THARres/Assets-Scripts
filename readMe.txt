@@ -1,6 +1,6 @@
 To Do List:
 
-6/05/2014
+6/11/2014
 
 Priority
 - Conclude desired value of each character
@@ -34,3 +34,27 @@ Parameters:
 STR - AGI
 INT - CHA
 LUC - APT
+
+2nd tier:
+
+Battle Parameters
+HP
+HP-Regen
+SP
+SP-Regen
+Stamina
+ATK
+DEF
+Mov SPD
+
+Crit
+
+Brust Rate
+Brust Speed
+Brust Size
+
+Hit Box Size
+
+Spell Slot
+
+Morale
