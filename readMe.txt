@@ -1,6 +1,6 @@
 To Do List:
 
-6/11/2014
+6/12/2014
 
 Priority
 - Conclude desired value of each character
@@ -58,3 +58,37 @@ Hit Box Size
 Spell Slot
 
 Morale
+
+Non-Battle Parameters
+
+Recruitment
+
+Party Speed
+Party Size
+
+Party Cost
+
+Search
+Recruitment
+
+Territory Management:
+Leadership
+Logistic
+
+Battle Parameter Modifiers
+
+STR - HP, HP-Regen, ATK, DEF, Stamina, Brust Rate (minor), Brust Size (major)
+AGI - Move Speed, Hit Box Size, Brust Rate (major), Brust Size (minor)
+INT - SP, SP-Regen, Brust Speed, Spell Slot
+CHA - Morale
+LUC - Crit (major)
+APT - A bit of everything
+
+Non-battle Parameter Modifiers
+
+STR - HP-Regen
+AGI - Party Speed (minor)
+INT - SP-Regen, Party Size (minor), Party Speed (major), Logistic, Recruitment (minor),
+      Leadership (minor)
+CHA - Party Size (major), Recruitment (major), Leadership (major)
+LUC - Search (major)
