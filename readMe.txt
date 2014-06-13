@@ -70,6 +70,7 @@ Party Cost
 
 Search
 Recruitment
+Familiarity
 
 Territory Management:
 Leadership
