@@ -1,0 +1,1 @@
+CharaControllerManager is the cupid.
