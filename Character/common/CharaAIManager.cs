@@ -1,7 +1,6 @@
-using UnityEngine;
 using System.Collections;
 
-public class CharaGraphicManager : MonoBehaviour {
+public class CharaAIManager : UnityEngine.MonoBehaviour {
 	public void Start() {}
 	public void Update() {}
 }

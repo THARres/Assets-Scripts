@@ -9,22 +9,20 @@ public class CharaParameterManager : UnityEngine.MonoBehaviour {
 	/* Stores All Parameter Here */
 	public System.Collections.Generic.Dictionary<string, float> Parameter = new System.Collections.Generic.Dictionary<string, float>();
 
-	void Start() {
+	public void Start() {
 		PreStart();
 		SetDefaultValue();
 		PostStart();
 	}
 
-	void SetDefaultValue() {
+	public void SetDefaultValue() {
 		Parameter.Add("HP", charaHP);
 		Parameter.Add("MaxHP", charaMaxHP);
 		Parameter.Add("BuffHP", charaBuffHP);
 		Parameter.Add("MoveSpeed", charaMovSpd);
 	}
 
-	void Update() {}
-
-	void UpdateParameter(System.Collections.Generic.Dictionary<string, float> list) {
+	public void UpdateParameter(System.Collections.Generic.Dictionary<string, float> list) {
 		foreach (var param in list) {
 			Parameter[param.Key] = param.Value;
 		}

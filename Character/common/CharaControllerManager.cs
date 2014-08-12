@@ -7,6 +7,6 @@ using System.Collections;
  **************************************************/
 
 public class CharaControllerManager : MonoBehaviour {
-	void Start() {}
-	void Update() {}
+	public void Start() {}
+	public void Update() {}
 }
