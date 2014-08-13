@@ -7,21 +7,14 @@ public class CharaParameterManager : UnityEngine.MonoBehaviour {
 	private float   charaMovSpd = 0; /* Store charaMovementSpeed */
 
 	/* Stores All Parameter Here */
-	public System.Collections.Generic.Dictionary<string, float> Parameter = new System.Collections.Generic.Dictionary<string, float>();
+	public System.Collections.Generic.Dictionary<string, float> Parameter = 
+		new System.Collections.Generic.Dictionary<string, float>();
 
 	public void Start() {
 		PreStart();
 		SetDefaultValue();
 		PostStart();
 	}
-
-	public void SetDefaultValue() {
-		Parameter.Add("HP", charaHP);
-		Parameter.Add("MaxHP", charaMaxHP);
-		Parameter.Add("BuffHP", charaBuffHP);
-		Parameter.Add("MoveSpeed", charaMovSpd);
-	}
-
 	public void UpdateParameter(System.Collections.Generic.Dictionary<string, float> list) {
 		foreach (var param in list) {
 			Parameter[param.Key] = param.Value;
@@ -66,6 +59,7 @@ public class CharaParameterManager : UnityEngine.MonoBehaviour {
    ▒▒▒▒▒▒██▒██▒▒▒▒▒▒▒▒▒▒██▒▒▒
    ▒██████▒▒████████▒▒▒▒██▒▒▒
   */
+
   public float SetCharaHP(float num) {
 		charaHP = num;
 		return charaHP;
@@ -81,6 +75,12 @@ public class CharaParameterManager : UnityEngine.MonoBehaviour {
 	public float SetCharaMovSpd(float num) {
 		charaMovSpd = num;
 		return charaMovSpd;
+	}
+	public void SetDefaultValue() {
+		Parameter.Add("HP", charaHP);
+		Parameter.Add("MaxHP", charaMaxHP);
+		Parameter.Add("BuffHP", charaBuffHP);
+		Parameter.Add("MoveSpeed", charaMovSpd);
 	}
 
 }

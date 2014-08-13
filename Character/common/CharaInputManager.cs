@@ -31,27 +31,6 @@ public class CharaInputManager : UnityEngine.MonoBehaviour {
 		PostStart();
 	}
 
-	public void SetDefaultValue() {
-		Key.Add("actionA" , actionA);
-		Key.Add("actionB" , actionB);
-		Key.Add("fire"    , fire);
-		Key.Add("dash"    , dash);
-		Key.Add("up0"     , up0);
-		Key.Add("left0"   , left0);
-		Key.Add("down0"   , down0);
-		Key.Add("right0"  , right0);
-		Key.Add("up1"     , up1);
-		Key.Add("left1"   , left1);
-		Key.Add("down1"   , down1);
-		Key.Add("right1"  , right1);
-		Key.Add("mouse0"  , mouse0);
-		Key.Add("mouse1"  , mouse1);
-
-		foreach (var pair in Key) {
-			Value.Add(pair.Value, pair.Key);
-		}
-	}
-
 	 /*
 	██▒▒▒▒██▒██▒██████▒▒████████▒██▒▒▒▒██▒▒█████▒▒██▒▒▒▒▒
 	██▒▒▒▒██▒██▒██▒▒▒██▒▒▒▒██▒▒▒▒██▒▒▒▒██▒██▒▒▒██▒██▒▒▒▒▒
@@ -87,6 +66,28 @@ public class CharaInputManager : UnityEngine.MonoBehaviour {
 	 ▒▒▒▒▒▒██▒██▒▒▒▒▒▒▒▒▒▒██▒▒▒
 	 ▒██████▒▒████████▒▒▒▒██▒▒▒
 	*/
+
+	public void SetDefaultValue() {
+		Key.Add("actionA" , actionA);
+		Key.Add("actionB" , actionB);
+		Key.Add("fire"    , fire);
+		Key.Add("dash"    , dash);
+		Key.Add("up0"     , up0);
+		Key.Add("left0"   , left0);
+		Key.Add("down0"   , down0);
+		Key.Add("right0"  , right0);
+		Key.Add("up1"     , up1);
+		Key.Add("left1"   , left1);
+		Key.Add("down1"   , down1);
+		Key.Add("right1"  , right1);
+		Key.Add("mouse0"  , mouse0);
+		Key.Add("mouse1"  , mouse1);
+
+		foreach (var pair in Key) {
+			Value.Add(pair.Value, pair.Key);
+		}
+	}
+	
 	public bool SetKey(string keyName, UnityEngine.KeyCode button) {
 		/* If duplicate, then flip */
 		if (Key.ContainsValue(button)) {
