@@ -1,7 +1,4 @@
-using UnityEngine;
-using System.Collections;
-
-public class CharaAudioManager : MonoBehaviour {
+public class CharaAudioManager : UnityEngine.MonoBehaviour {
 	public void Start() {}
 	public void Update() {}
 }
