@@ -52,7 +52,7 @@ public class CharaInputManager : UnityEngine.MonoBehaviour {
 
 	public bool GetKey(string key) {
 		if (Key.ContainsKey(key)) {
-			return UnityEngine.Input.GetKeyDown(Key[key]);
+			return UnityEngine.Input.GetKey(Key[key]);
 		} else {
 			UnityEngine.Debug.Log("Unsupported Input Key: " + key);
 			return false;
