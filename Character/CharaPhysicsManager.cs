@@ -7,6 +7,7 @@ public class CharaPhysicsManager : UnityEngine.MonoBehaviour {
 	public CharaInputManager     AI;
 	public CharaInputManager     Input;
 	public CharaParameterManager Parameter;
+	public Map                   Map;
 
 	public int                   Direction;
 
@@ -29,6 +30,7 @@ public class CharaPhysicsManager : UnityEngine.MonoBehaviour {
 			SetActionState(AI);
 			SetMovementState(AI);
 		} else {
+			Map.UpdatePlayer(gameObject);
 			SetActionState(Input);
 			SetMovementState(Input);
 		}
@@ -118,6 +120,7 @@ public class CharaPhysicsManager : UnityEngine.MonoBehaviour {
 		AI        = GetComponent<CharaInputAI>();
 		Input     = GetComponent<CharaInputPlayer>();
 		Parameter = GetComponent<CharaParameterManager>();
+		Map       = UnityEngine.GameObject.Find("_Map").GetComponent<Map>();
 	}
 	private void SetMovementState(CharaInputManager input) {
 		Direction = GetDirection(input);
