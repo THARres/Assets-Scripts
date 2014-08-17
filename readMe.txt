@@ -4,9 +4,13 @@ To Do List:
 
 Priority
 - Conclude desired value of each character
-- Rework Mapping And Camera Management
+- Scene Control (Title, Map, Battle, GameOver)
+- Create autonomous AI brain
+- Implement Action (collision, damage, and game over system)
 
 Secondary
+
+- Beautify Map And Camera Scripts (scripts currently are working-but-rough design)
 
 - Implement Faction Layering
 
