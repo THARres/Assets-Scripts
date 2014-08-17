@@ -22,7 +22,6 @@ public class playerControlScript : MonoBehaviour {
 	}
 
 	void setPlayerVarValues() {
-
 		horz = Input.GetAxis("Horizontal");
 		
 		/*********************************

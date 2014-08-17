@@ -1,10 +1,10 @@
 To Do List:
 
-6/12/2014
+8/16/2014
 
 Priority
 - Conclude desired value of each character
-
+- Rework Mapping And Camera Management
 
 Secondary
 
@@ -45,8 +45,8 @@ SP-Regen
 Stamina
 ATK
 DEF
-Mov SPD
-
+Mov  SPD
+Turn SPD
 Crit
 
 Brust Rate
