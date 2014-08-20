@@ -17,6 +17,10 @@ public class CharaAI : UnityEngine.MonoBehaviour {
 	private UnityEngine.GameObject target = null;
 	private UnityEngine.Vector3    finish = new UnityEngine.Vector3(0F,0F,0F);
 
+	/* Stores All Faction Hostility Rate Here */
+	private System.Collections.Generic.Dictionary<string, float> faction = 
+		new System.Collections.Generic.Dictionary<string, float>();
+
 	public void Start() {
 		PreStart();
 		SetDefaultValue();
@@ -31,7 +35,7 @@ public class CharaAI : UnityEngine.MonoBehaviour {
 
 	}
 	private void UpdateMovement() {
-		switch(State) {
+		switch (State) {
 		case "Idle":
 		default:
 			gate.SetValue("up0"   , false);
@@ -42,7 +46,14 @@ public class CharaAI : UnityEngine.MonoBehaviour {
 		}
 	}
 	private void UpdateAction() {
-
+		switch (State) {
+		case "Idle":
+		default:
+			gate.SetValue("fire"    , false);
+			gate.SetValue("actionA" , false);
+			gate.SetValue("actionB" , false);
+			break;
+		}
 	}
 
  /*
